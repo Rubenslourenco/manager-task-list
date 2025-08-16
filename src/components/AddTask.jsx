@@ -21,7 +21,13 @@ const AddTask = ({onAddTaskSubmit}) => {
               onChange={(event) => setDescription(event.target.value)}
               />
 
-             <button onClick={() => onAddTaskSubmit(title, description)} className="bg-slate-500 text-white p-2 rounded-md font-medium">
+             <button onClick={() => {
+              if(!title.trim() || !description.trim()) return alert("Preencha todos os campos")
+              onAddTaskSubmit(title, description)
+              setTitle("")
+              setDescription("")      
+              }}
+               className="bg-slate-500 text-white p-2 rounded-md font-medium">
                 Adicionar
              </button>
         </div>
