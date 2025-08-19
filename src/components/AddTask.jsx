@@ -8,7 +8,7 @@ const AddTask = ({onAddTaskSubmit}) => {
              <input 
               type="text"
               placeholder="Digite o titulo da tarefa" 
-              className="border 0border-slate-300 outline-slate-400 px-4 py-2"
+              className="border border-slate-300 outline-slate-400 px-4 py-2"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
               />
