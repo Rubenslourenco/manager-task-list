@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import TaskPage from "./components/pages/TaskPage.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
