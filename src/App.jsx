@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {v4} from "uuid";
 
 import AddTask from "./components/AddTask";
@@ -7,26 +7,7 @@ import Tasks from "./components/Tasks";
 
 
 const App = () => {
-      const [tasks, setTasks] = useState([
-        {
-          id: 1,
-          title: 'Estudar React',
-          description: 'Estudar React com Vite',
-          isCompleted: false
-        },
-        {
-          id: 2,
-          title: 'Estudar Vue',
-          description: 'Estudar Vue com Vite',
-          isCompleted: false
-        },
-        {
-          id: 3,
-          title: 'Estudar Angular',
-          description: 'Estudar Angular com Vite',
-          isCompleted: false
-        }
-      ]);
+      const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
 
 
       function onTaskClick(taskId) {
@@ -54,6 +35,9 @@ const App = () => {
          setTasks([...tasks, newTasks]);
         }
       
+        useEffect(() => {
+          localStorage.setItem('tasks', JSON.stringify(tasks))
+        }, [tasks])
 
 
   return (
