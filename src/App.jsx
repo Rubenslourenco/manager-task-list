@@ -10,6 +10,22 @@ const App = () => {
       const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
 
 
+     useEffect(() => {
+    const fetchTasks = async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=10",
+        {
+          method: "GET",
+        }
+      );
+      const data = await response.json();
+      setTasks(data);
+    };
+    // SE QUISER, VOCÊ PODE CHAMAR UMA API PARA PEGAR AS TAREFAS
+    // fetchTasks();
+  }, []);
+
+
       function onTaskClick(taskId) {
         const newTasks = tasks.map(task => {
           if(task.id === taskId) {
