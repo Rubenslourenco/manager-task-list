@@ -21,8 +21,7 @@ const App = () => {
       const data = await response.json();
       setTasks(data);
     };
-    // SE QUISER, VOCÊ PODE CHAMAR UMA API PARA PEGAR AS TAREFAS
-    // fetchTasks();
+    fetchTasks();
   }, []);
 
 
